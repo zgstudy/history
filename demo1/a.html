@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" name="viewport">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="author" content="Cleam Lee">
+	<title>AAAAAAAA</title>
+	<style>
+		h1 {font-size: 30px;}
+	</style>
+</head>
+<body>
+	<h1>页面A</h1>
+	<script>
+		pushHistory();
+
+        window.addEventListener("popstate", function(e) {
+            console.log(e);
+            // if(e.state){
+            // }
+            window.location.href = './b.html';
+            // 根据自己的需求实现自己的功能 
+            // alert("我监听到了浏览器的返回按钮事件啦");
+        }, false);
+
+        function pushHistory() {
+            var state = {
+                title: "#",
+                url: "#"
+            };
+            history.pushState(state, "#", "#");
+            // window.history.pushState(state, "title", "#toutiao");
+            // history.pushState({url: 'http://toutiao.eastday.com/'}, "wechat", "#wechat");    //添加并激活一个历史记录条目 http://example.com/example.html?page=1,条目索引为1
+        }
+	</script>
+</body>
+</html>

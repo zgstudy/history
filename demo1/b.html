@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" name="viewport">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="author" content="Cleam Lee">
+	<title>BBBBBBBBB</title>
+	<style>
+		h1 {font-size: 30px;}
+	</style>
+</head>
+<body>
+	<h1>页面B</h1>
+	<script>
+		pushHistory();
+
+        window.addEventListener("popstate", function(e) {
+            console.log(e);
+            window.opener=null;
+            window.open('','_self');
+            window.close();
+        }, false);
+
+        function pushHistory() {
+            var state = {
+                title: "#",
+                url: "#"
+            };
+            history.pushState(state, "#", "#");    //添加并激活一个历史记录条目 http://example.com/example.html?page=1,条目索引为1
+            // window.history.pushState(state, "title", "#toutiao");
+            // history.pushState({page: '#'}, "#", "#"); 
+        }
+	</script>
+</body>
+</html>
